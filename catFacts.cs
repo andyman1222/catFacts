@@ -16,8 +16,21 @@ class catFacts{
             string output = "";
             char ch = (char)s.Read();
             while (ch != '\"'){
-                if(ch == '\\')
+                if(ch == '\\'){
                     ch = (char)s.Read();
+                    if(ch == 'u'){
+                        string uniChar = "";
+                        char addChar = (char)s.Read();
+                        while(System.Char.IsDigit(addChar)){
+                            uniChar += addChar;
+                            addChar = (char)s.Read();
+                        }
+                        Console.Write(uniChar);
+                        int uniValue = Int32.Parse(uniChar);
+                        ch = (char)uniValue;
+                        Console.WriteLine(" " + ch);
+                    }
+                }
                 output += ch;
                 ch = (char)s.Read();
             }
