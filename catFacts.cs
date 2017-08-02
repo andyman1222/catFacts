@@ -4,7 +4,7 @@ using System.IO;
 using System.Threading;
 using System;
 
-class main{
+class catFacts{
     static string getCatFact(){
         HttpWebRequest rq = (HttpWebRequest)WebRequest.Create("https://catfact.ninja/fact");
         rq.Method = "GET";
