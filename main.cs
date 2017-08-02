@@ -16,6 +16,8 @@ class main{
             string output = "";
             char ch = (char)s.Read();
             while (ch != '\"'){
+                if(ch == '\\')
+                    ch = (char)s.Read();
                 output += ch;
                 ch = (char)s.Read();
             }
